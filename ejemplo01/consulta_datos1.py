@@ -1,6 +1,7 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import and_ # se importa el operador and
+import datetime 
 
 # se importa la clase(s) del 
 # archivo genera_tablas
@@ -20,12 +21,15 @@ session = Session()
 # Obtener todos los registros de 
 # la entidad Club
 clubs = session.query(Club).all()
-
 # Se recorre la lista a través de un ciclo
 # repetitivo for en python
 print("Presentación de Clubs")
 for s in clubs:
     print("%s" % (s))
+    print("Años de vida:%d" % (s.obtener_anios_vida()))
+    print("Dorsales:\n%s" % (s.obtener_dorsales_jugadores()))
+    print("Suma dorsales:\n%d" % (s.obtener_suma_dorsales()))
+#    print("Años de vida del club: %d" % (datetime.datatime.now().year - s.fundacion))
     print("---------")
 
 # Obtener todos los registros de 
@@ -35,10 +39,10 @@ jugadores = session.query(Jugador).all()
 # Se recorre la lista a través de un ciclo
 # repetitivo for en python
 
-print("Jugadores")
+"""print("Jugadores")
 for s in jugadores:
-    print("%s" % (s))
-    print("---------")
+    print("%s" % (s))"""
+
 
 
 
